@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+ul, ol {
+  list-style: none; }
+
+button {
+  background: none;
+  border: none; }
+  button:hover {
+    cursor: pointer; }
+
+a {
+  cursor: pointer; }
+
+input {
+  border: none;
+  background: transparent; }
+
+/*# sourceMappingURL=default.css.map */
