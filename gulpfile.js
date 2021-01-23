@@ -11,7 +11,7 @@ const browserSync = require('browser-sync').create();
 const srcPath = 'src/assets';
 const distPath = 'dist/assets';
 
-function style() {
+const style = () => {
     return gulp.src(`${srcPath}/scss/**/*.scss`)
     .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
@@ -21,7 +21,7 @@ function style() {
     .pipe(browserSync.stream());
 }
 
-function sassWatch(){
+const sassWatch = () => {
     browserSync.init({
         server: {
             baseDir: './src'
@@ -33,23 +33,23 @@ function sassWatch(){
     
 }
 
-function distHTML() {
+const distHTML = () => {
     return gulp.src('src/*.html')
     .pipe(gulp.dest('dist/')); 
 }
 
-function distImages() {
-    return gulp.src(`${srcPath}/images/*.{png,gif,jpg`)
+const distImages = () => {
+    return gulp.src(`${srcPath}/images/*.{png,gif,jpg}`)
     .pipe(gulp.dest(`${distPath}/images`)); 
 }
 
-function distCSS() {
+const distCSS = () => {
     return gulp.src(`${srcPath}/css/*.css`)
     .pipe(cleanCSS())
     .pipe(gulp.dest(`${distPath}/css`));
 }
 
-function distJS() {
+const distJS = () => {
     return gulp.src(`${srcPath}/js/*.js`)
     .pipe(concat('main.js'))
     .pipe(terser())
