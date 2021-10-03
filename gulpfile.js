@@ -12,13 +12,15 @@ const browserSync = require('browser-sync').create();
 const srcPath = 'src/assets';
 const distPath = 'dist/assets';
 
-const stylelint = () => {
+const stylelint = (done) => {
     gulp.src(srcPath)
     .pipe(gulpStylelint({
         reporters: [
             {formatter: 'string', console: true}
         ]
     }));
+
+    done();
 }
 
 const style = () => {

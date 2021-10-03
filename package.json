@@ -7,7 +7,8 @@
   "license": "ISC",
   "scripts": {
     "sassWatch": "gulp sassWatch",
-    "build": "gulp build"
+    "build": "gulp build",
+    "stylelint": "gulp stylelint"
   },
   "devDependencies": {
     "browser-sync": "^2.26.13",
