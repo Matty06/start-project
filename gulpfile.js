@@ -1,5 +1,6 @@
 const gulp = require('gulp');
-const { parallel } = require('gulp');
+const { parallel, src } = require('gulp');
+const gulpStylelint = require('gulp-stylelint');
 const sass = require('gulp-sass');
 const cleanCSS = require('gulp-clean-css');
 const sourcemaps = require('gulp-sourcemaps');
@@ -10,6 +11,15 @@ const browserSync = require('browser-sync').create();
 
 const srcPath = 'src/assets';
 const distPath = 'dist/assets';
+
+const stylelint = () => {
+    gulp.src(srcPath)
+    .pipe(gulpStylelint({
+        reporters: [
+            {formatter: 'string', console: true}
+        ]
+    }));
+}
 
 const style = () => {
     return gulp.src(`${srcPath}/scss/**/*.scss`)
@@ -57,5 +67,6 @@ const distJS = () => {
 }
 
 
-exports.build = parallel(distHTML, distCSS, distJS, distImages); 
+exports.build = parallel(distHTML, distCSS, distJS, distImages);
+exports.stylelint = stylelint; 
 exports.sassWatch = sassWatch;
