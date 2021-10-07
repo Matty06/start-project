@@ -9,6 +9,8 @@ const terser = require('gulp-terser');
 const concat = require('gulp-concat');
 const browserSync = require('browser-sync').create();
 
+
+
 const srcPath = 'src/assets';
 const distPath = 'dist/assets';
 
@@ -16,7 +18,7 @@ const stylelint = (cb) => {
     gulp.src(`${srcPath}/scss/**/*.scss`)
     .pipe(gulpStylelint({
         reporters: [
-            {formatter: 'string', console: true}
+            {formatter: 'verbose', console: true}
         ]
     }));
     cb();   
